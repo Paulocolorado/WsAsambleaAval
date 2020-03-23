@@ -93,6 +93,10 @@ public class AttorneyController {
                         this.shareHolderService.updateShareHolder(att);
                     }
                 }
+            }else {
+                response.setReturnCode("10");
+                response.setDescriptoCode("operacion no pudo realizarce");
+                response.setMenssage("accionista o apoderado no existen");
             }
         }catch (Exception e){
             response.setReturnCode("99");

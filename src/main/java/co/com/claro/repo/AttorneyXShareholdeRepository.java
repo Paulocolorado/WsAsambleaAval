@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @Repository
 public interface AttorneyXShareholdeRepository extends JpaRepository<AttorneyXShareHolder, Long> {
+
     @Query("SELECT q.accNumAccion FROM AttorneyXShareHolder q WHERE q.apoNumId = :numId and q.apoTipId = :tipId")
-    List<String> actionsByDoc( @Param("tipId") Long tipId, @Param("numId") String numId);
+    List<String> actionsByDoc( @Param("tipId") String tipId, @Param("numId") Long numId);
 }

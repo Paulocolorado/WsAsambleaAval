@@ -58,13 +58,4 @@ public class AttorneyXShareHolder {
     @Getter @Setter
     @ManyToOne
     private Attorney attorneyId;
-
-    @JoinColumns({
-            @JoinColumn(name = "TIP_ID"),
-            @JoinColumn(name = "NUM_ID"),
-            @JoinColumn(name = "NUMERO_ACCION")
-    })
-    @Getter @Setter
-    @OneToOne
-    private ShareHolder shareHolderId;
 }

@@ -31,14 +31,6 @@ public class QuestionXAction {
     @Getter @Setter
     private String numeroAccion;
 
-    @Column(name = "APO_TIP_ID", length = 2)
-    @Getter @Setter
-    private String apoTipId;
-
-    @Column(name = "APO_NUM_ID", length = 15)
-    @Getter @Setter
-    private Long apoNumId;
-
     @Column(name = "RESPUESTA", length = 20)
     @Getter @Setter
     private String respuesta;
@@ -55,17 +47,4 @@ public class QuestionXAction {
     @Getter @Setter
     private String ipRespuesta;
 
-    @JoinColumn(name = "PREGUNTAS_ASAMBLEA.ID_PREGUNTA")
-    @Getter @Setter
-    @ManyToOne
-    private AssemblyQuestions assemblyQuestionsId;
-
-    @JoinColumns({
-            @JoinColumn(name = "ACCIONISTAS.TIP_ID"),
-            @JoinColumn(name = "ACCIONISTAS.NUM_ID"),
-            @JoinColumn(name = "ACCIONISTAS.NUMERO_ACCION")
-    })
-    @Getter @Setter
-    @ManyToOne
-    private ShareHolder shareHolderId;
 }

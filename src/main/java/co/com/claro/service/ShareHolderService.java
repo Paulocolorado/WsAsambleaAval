@@ -43,4 +43,7 @@ public class ShareHolderService {
         return this.shareHolderRepository.save(shareHolder);
     }
 
+    public List<String> getActions(String tipId, Long numID){
+        return this.shareHolderRepository.findAllActionsByDocument(tipId, numID);
+    }
 }

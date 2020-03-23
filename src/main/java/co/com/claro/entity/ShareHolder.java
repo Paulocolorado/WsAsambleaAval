@@ -66,11 +66,8 @@ public class ShareHolder {
     @Getter @Setter
     private boolean moderador;
 
-    @OneToOne(mappedBy = "shareHolderId", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @Column(name = "PREGUNTAS")
     @Getter @Setter
-    private AttorneyXShareHolder attorneyXShareHolderId;
+    private String Preguntas;
 
-    @OneToMany(mappedBy = "shareHolderId", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @Getter @Setter
-    private List<QuestionXAction> questionXActionList;
 }

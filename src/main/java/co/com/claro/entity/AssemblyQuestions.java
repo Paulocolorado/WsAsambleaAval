@@ -51,8 +51,4 @@ public class AssemblyQuestions {
     @Column(name = "USER_MOD", length = 20)
     @Getter @Setter
     private String userMod;
-
-    @OneToMany(mappedBy = "assemblyQuestionsId", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
-    @Getter @Setter
-    private List<QuestionXAction> questionXActionList;
 }

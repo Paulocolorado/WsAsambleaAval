@@ -50,7 +50,7 @@ public class ShareHolderController {
             if (shareHolder.isPresent()){
                 sh = shareHolder.get();
                 if (sh.isApoderado()){
-                    actionsAttorney = this.xShareholderService.getActionsByAttorney(tip,num);
+                    actionsAttorney = this.shareHolderService.getActions(tip,num);
                 }
             }else {
                 generic.setReturnCode("10");

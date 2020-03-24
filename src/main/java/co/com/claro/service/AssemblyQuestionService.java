@@ -21,7 +21,8 @@ public class AssemblyQuestionService {
     }
 
     public List<AssemblyQuestions> getAllAssemblyQuestions(){
-        return this.assemblyQuestionRepository.findAll();
+        //return this.assemblyQuestionRepository.findAll();
+        return this.assemblyQuestionRepository.findAllOrderByPregunta();
     }
 
     public Optional<AssemblyQuestions> getAssemblyQuestionsById(Long id){

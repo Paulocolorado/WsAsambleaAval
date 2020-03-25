@@ -19,6 +19,10 @@ import java.util.Optional;
 @RestController
 @RequestMapping("api/shareHolder")
 @Slf4j
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,
+        RequestMethod.POST,
+        RequestMethod.OPTIONS,
+        RequestMethod.PUT })
 public class ShareHolderController {
     private final ShareHolderService shareHolderService;
     private final AttorneyXShareholderService xShareholderService;

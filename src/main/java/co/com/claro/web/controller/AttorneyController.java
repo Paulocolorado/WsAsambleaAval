@@ -21,6 +21,10 @@ import java.util.Optional;
 @RestController
 @RequestMapping("api/Attorney")
 @Slf4j
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,
+        RequestMethod.POST,
+        RequestMethod.OPTIONS,
+        RequestMethod.PUT })
 public class AttorneyController {
 
     private final AttorneyService attorneyService;

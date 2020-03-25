@@ -15,6 +15,10 @@ import java.util.Optional;
 @RestController
 @RequestMapping("api/QuestionXAction")
 @Slf4j
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,
+        RequestMethod.POST,
+        RequestMethod.OPTIONS,
+        RequestMethod.PUT })
 public class QuestionXActionController {
 
     private final QuestionXActionService xActionService;

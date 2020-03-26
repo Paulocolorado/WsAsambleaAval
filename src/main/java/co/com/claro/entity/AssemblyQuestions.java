@@ -20,11 +20,11 @@ public class AssemblyQuestions {
     @Getter @Setter
     private Long id;
 
-    @Column(name = "PREGUNTA",length = 100)
+    @Column(name = "PREGUNTA",length = 500)
     @Getter @Setter
     private String pregunta;
 
-    @Column(name = "DESC_PREGUNTA", length = 250)
+    @Column(name = "DESC_PREGUNTA", length = 500)
     @Getter @Setter
     private String descPregunta;
 

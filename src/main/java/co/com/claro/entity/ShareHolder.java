@@ -16,14 +16,14 @@ import java.util.List;
 public class ShareHolder {
 
     @Id
-    @Column(name = "TIP_ID", length = 2)
+    @Column(name = "TIP_ID", length = 3)
     @Getter @Setter
     private String tipId;
 
     @Id
-    @Column(name = "NUM_ID", length = 15)
+    @Column(name = "NUM_ID", length = 20)
     @Getter @Setter
-    private Long numId;
+    private String numId;
 
     @Id
     @Column(name = "NUMERO_ACCION", length = 20)

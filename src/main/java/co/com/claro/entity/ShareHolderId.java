@@ -6,13 +6,13 @@ public class ShareHolderId implements Serializable {
     private static final long serialVersionUID =1L;
 
     private String tipId;
-    private Long numId;
+    private String numId;
     private String numeroAccion;
 
     public ShareHolderId() {
     }
 
-    public ShareHolderId(String tipId, Long numId, String numeroAccion) {
+    public ShareHolderId(String tipId, String numId, String numeroAccion) {
         this.tipId = tipId;
         this.numId = numId;
         this.numeroAccion = numeroAccion;

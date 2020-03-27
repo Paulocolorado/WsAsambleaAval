@@ -13,7 +13,7 @@ public class AttorneyCreate {
     private String accTipId;
 
     @Getter @Setter
-    private Long accNumId;
+    private String accNumId;
 
     @Getter @Setter
     private String accNumAccion;
@@ -24,7 +24,7 @@ public class AttorneyCreate {
     public AttorneyCreate() {
     }
 
-    public AttorneyCreate(Attorney attorney, String accTipId, Long accNumId, String accNumAccion, String ipAcces) {
+    public AttorneyCreate(Attorney attorney, String accTipId, String accNumId, String accNumAccion, String ipAcces) {
         this.attorney = attorney;
         this.accTipId = accTipId;
         this.accNumId = accNumId;

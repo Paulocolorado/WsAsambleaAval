@@ -20,11 +20,11 @@ public class ShareHolderService {
         this.shareHolderRepository = shareHolderRepository;
     }
 
-    public Optional<ShareHolder> getShareHolderById(String tipId, Long numId, String numAccion){
+    public Optional<ShareHolder> getShareHolderById(String tipId, String numId, String numAccion){
         return this.shareHolderRepository.findByTipIdAndNumIdAndNumeroAccion(tipId, numId, numAccion);
     }
 
-    public Optional<ShareHolder> getShareHolderByDoc(String tipId, Long numId){
+    public Optional<ShareHolder> getShareHolderByDoc(String tipId, String numId){
         return this.shareHolderRepository.findByTipIdAndNumId(tipId,numId);
     }
 
@@ -43,7 +43,7 @@ public class ShareHolderService {
         return this.shareHolderRepository.save(shareHolder);
     }
 
-    public List<String> getActions(String tipId, Long numID){
+    public List<String> getActions(String tipId, String numID){
         return this.shareHolderRepository.findAllActionsByDocument(tipId, numID);
     }
 }

@@ -66,13 +66,13 @@ public class AttorneyController {
         try {
             shareHolder = this.shareHolderService.getShareHolderById(attorney.getAccTipId(),
                     attorney.getAccNumId(), attorney.getAccNumAccion());
-            isAttorney = this.shareHolderService.getShareHolderByDoc(attorney.getAttorney().getTipId(),
-                    attorney.getAttorney().getNumId());
-            if (shareHolder.isPresent() && isAttorney.isPresent()  ){
+            //isAttorney = this.shareHolderService.getShareHolderByDoc(attorney.getAttorney().getTipId(),
+             //       attorney.getAttorney().getNumId());
+            if (shareHolder.isPresent()  ){
                 ShareHolder sh =  shareHolder.get();
-                ShareHolder att = isAttorney.get();
-                boolean isSame = sh.getTipId().equals(att.getTipId()) && sh.getNumId().equals(att.getNumId());
-                if (att.isAutoriza() && !isSame){
+               // ShareHolder att = isAttorney.get();
+                //boolean isSame = sh.getTipId().equals(att.getTipId()) && sh.getNumId().equals(att.getNumId());
+                if (true){
                     created = this.attorneyService.createAttorney(attorney.getAttorney());
                     relacion.setApoNumId(created.getNumId());
                     relacion.setApoTipId(created.getTipId());
@@ -92,10 +92,10 @@ public class AttorneyController {
                     sh.setIpAcceso(attorney.getIpAcces());
                     sh.setFechaUltimoAcceso(new Date());
                     this.shareHolderService.updateShareHolder(sh);
-                    if (!att.isApoderado()){
+                    /*if (!att.isApoderado()){
                         att.setApoderado(true);
                         this.shareHolderService.updateShareHolder(att);
-                    }
+                    }*/
                 }
             }else {
                 response.setReturnCode("10");
@@ -116,7 +116,7 @@ public class AttorneyController {
                                      @RequestBody Attorney attorney) {
         log.info("process=updatete-attorney, Attorney_correo={}", attorney.getCorreo());
         attorney.setTipId(tip);
-        attorney.setNumId(num);
+        attorney.setNumId(num.toString());
         return this.attorneyService.updateAttorney(attorney);
     }
 }

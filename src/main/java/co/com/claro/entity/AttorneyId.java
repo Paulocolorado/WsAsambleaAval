@@ -7,12 +7,12 @@ public class AttorneyId implements Serializable {
     private static final long serialVersionUID =1L;
 
     private String tipId;
-    private Long numId;
+    private String numId;
 
     public AttorneyId() {
     }
 
-    public AttorneyId(String tipId, Long numId) {
+    public AttorneyId(String tipId, String numId) {
         this.tipId = tipId;
         this.numId = numId;
     }

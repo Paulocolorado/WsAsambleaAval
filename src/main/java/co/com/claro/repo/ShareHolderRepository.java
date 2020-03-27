@@ -11,10 +11,10 @@ import java.util.Optional;
 
 @Repository
 public interface ShareHolderRepository extends JpaRepository<ShareHolder, Long> {
-    Optional<ShareHolder> findByTipIdAndNumIdAndNumeroAccion(String tipId, Long numId, String numeroAccion);
+    Optional<ShareHolder> findByTipIdAndNumIdAndNumeroAccion(String tipId, String numId, String numeroAccion);
     Optional<ShareHolder> findByNumeroAccion(String numeroAccion);
-    Optional<ShareHolder> findByTipIdAndNumId(String tipId, Long numId);
+    Optional<ShareHolder> findByTipIdAndNumId(String tipId, String numId);
 
     @Query("select q.numeroAccion from ShareHolder q where q.tipId = :tipId and  q.numId = :numId")
-    List<String> findAllActionsByDocument(@Param("tipId") String tipId, @Param("numId") Long numId);
+    List<String> findAllActionsByDocument(@Param("tipId") String tipId, @Param("numId") String numId);
 }

@@ -19,21 +19,21 @@ public class AttorneyXShareHolder {
     @Getter @Setter
     private Long id;
 
-    @Column(name = "APO_TIP_ID", length = 2)
+    @Column(name = "APO_NUM_ID", length = 3)
     @Getter @Setter
     private String apoTipId;
 
-    @Column(name = "APO_NUM_ID", length = 15)
+    @Column(name = "APO_TIP_ID", length = 20)
     @Getter @Setter
-    private Long apoNumId;
+    private String apoNumId;
 
-    @Column(name = "ACC_TIP_ID", length = 2)
+    @Column(name = "ACC_TIP_ID", length = 3)
     @Getter @Setter
     private String accTipId;
 
-    @Column(name = "ACC_NUM_ID", length = 15)
+    @Column(name = "ACC_NUM_ID", length = 20)
     @Getter @Setter
-    private Long accNumId;
+    private String accNumId;
 
     @Column(name = "ACC_NUM_ACCION", length = 20)
     @Getter @Setter
@@ -51,11 +51,4 @@ public class AttorneyXShareHolder {
     @Getter @Setter
     private String ipUltAcceso;
 
-    @JoinColumns({
-            @JoinColumn(name = "APODERADO.TIP_ID" ),
-            @JoinColumn(name = "APODERADO.NUM_ID")
-    })
-    @Getter @Setter
-    @ManyToOne
-    private Attorney attorneyId;
 }

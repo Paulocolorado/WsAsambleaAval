@@ -42,7 +42,7 @@ public class ShareHolderController {
 
     @GetMapping("/{tip}/{num}/{accion}")
     public ShareholderResponse getShareHolderById(@PathVariable String tip ,
-                                                  @PathVariable Long num,
+                                                  @PathVariable String num,
                                                   @PathVariable String accion) {
         log.info("process=get-shareHolder, shareHolder_num={}", num);
         ShareholderResponse response = new ShareholderResponse();
@@ -87,7 +87,7 @@ public class ShareHolderController {
                                            @RequestBody ShareHolder shareHolder) {
         log.info("process=updatete-shareHolder, shareHolder_correo={}", shareHolder.getCorreo());
         shareHolder.setTipId(tip);
-        shareHolder.setNumId(num);
+        shareHolder.setNumId(num.toString());
         shareHolder.setNumeroAccion(accion);
         return this.shareHolderService.updateShareHolder(shareHolder);
     }

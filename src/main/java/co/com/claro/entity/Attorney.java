@@ -16,14 +16,14 @@ import java.util.List;
 public class Attorney {
 
     @Id
-    @Column(name = "TIP_ID", length = 2)
+    @Column(name = "TIP_ID", length = 3)
     @Getter @Setter
     private String tipId;
 
     @Id
-    @Column(name = "NUM_ID", length = 15)
+    @Column(name = "NUM_ID", length = 20)
     @Getter @Setter
-    private Long numId;
+    private String numId;
 
     @Column(name = "NOMBRES_APELLIDOS", length = 100)
     @Getter @Setter
@@ -44,10 +44,5 @@ public class Attorney {
     @Column(name = "FECHA_ULTIMO_ACCESO")
     @Getter @Setter
     private Date fechaUltimoAcceso;
-
-    @OneToMany(mappedBy = "attorneyId", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
-    @Getter @Setter
-    private List<AttorneyXShareHolder> attorneyXShareHolderList;
-
 
 }

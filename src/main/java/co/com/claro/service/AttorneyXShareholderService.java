@@ -35,7 +35,7 @@ public class AttorneyXShareholderService {
         return this.attorneyXShareholdeRepository.save(xShareHolder);
     }
 
-    public List<String> getActionsByAttorney(String tipId, Long numID){
+    public List<String> getActionsByAttorney(String tipId, String numID){
         return this.attorneyXShareholdeRepository.actionsByDoc(tipId, numID);
     }
 }

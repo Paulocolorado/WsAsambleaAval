@@ -19,11 +19,11 @@ public class AttorneyXShareHolder {
     @Getter @Setter
     private Long id;
 
-    @Column(name = "APO_NUM_ID", length = 3)
+    @Column(name = "APO_TIP_ID", length = 3)
     @Getter @Setter
-    private String apoTipId;
+    private String  apoTipId;
 
-    @Column(name = "APO_TIP_ID", length = 20)
+    @Column(name = "APO_NUM_ID", length = 20)
     @Getter @Setter
     private String apoNumId;
 

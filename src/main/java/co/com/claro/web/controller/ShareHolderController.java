@@ -53,10 +53,8 @@ public class ShareHolderController {
             Optional<ShareHolder> shareHolder = shareHolderService.getShareHolderById(tip,num,accion);
             if (shareHolder.isPresent()){
                 sh = shareHolder.get();
-                if (sh.isApoderado()){
                     //actionsAttorney = this.shareHolderService.getActions(tip,num);
                     actionsAttorney = this.xShareholderService.getActionsByAttorney(tip,num);
-                }
             }else {
                 generic.setReturnCode("10");
                 generic.setDescriptoCode("NOT FOUND");

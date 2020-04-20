@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import static org.springframework.http.HttpStatus.CREATED;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,10 +41,11 @@ public class ShareHolderController {
         return shareHolderService.getAllShareHolder();
     }
 
-    @GetMapping("/{tip}/{num}/{accion}")
+    @GetMapping("/{tip}/{num}/{accion}/{ip}")
     public ShareholderResponse getShareHolderById(@PathVariable String tip ,
                                                   @PathVariable String num,
-                                                  @PathVariable String accion) {
+                                                  @PathVariable String accion,
+                                                  @PathVariable String ip) {
         log.info("process=get-shareHolder, shareHolder_num={}", num);
         ShareholderResponse response = new ShareholderResponse();
         List<String> actionsAttorney = new ArrayList<>();
@@ -53,8 +55,26 @@ public class ShareHolderController {
             Optional<ShareHolder> shareHolder = shareHolderService.getShareHolderById(tip,num,accion);
             if (shareHolder.isPresent()){
                 sh = shareHolder.get();
-                    //actionsAttorney = this.shareHolderService.getActions(tip,num);
-                    actionsAttorney = this.xShareholderService.getActionsByAttorney(tip,num);
+                List<String> autoriza = new ArrayList<>();
+                //actionsAttorney = this.shareHolderService.getActions(tip,num);
+                boolean acceso = true;
+                acceso = (sh.getIpAcceso() == null || sh.getIpAcceso().equals(""));
+                if (!acceso){
+                    String [] au = sh.getIpAcceso().split(";");
+                    String[] ipState = ip.split(";");
+                    autoriza.addAll(Arrays.asList(au)) ;
+                    acceso = !autoriza.get(autoriza.size() -1).equals(ipState[ipState.length -1]);
+                }
+                if (acceso ) {
+                    sh.setIpAcceso(ip);
+                    shareHolderService.updateShareHolder(sh);
+                    actionsAttorney = this.xShareholderService.getActionsByAttorney(tip, num);
+
+                }else {
+                    generic.setReturnCode("98");
+                    generic.setDescriptoCode("denied access");
+                    generic.setMenssage("el usuario se encuentra logueado en otro equipo");
+                }
             }else {
                 generic.setReturnCode("10");
                 generic.setDescriptoCode("NOT FOUND");
